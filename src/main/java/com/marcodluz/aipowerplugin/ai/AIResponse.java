@@ -1,4 +1,4 @@
-package com.marcoluz.aipowerplugin.ai;
+package com.marcodluz.aipowerplugin.ai;
 
 public class AIResponse {
     private final boolean success;

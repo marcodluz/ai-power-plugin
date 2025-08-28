@@ -1,4 +1,4 @@
-package com.marcoluz.aipowerplugin.ai;
+package com.marcodluz.aipowerplugin.ai;
 
 import java.util.concurrent.CompletableFuture;
 

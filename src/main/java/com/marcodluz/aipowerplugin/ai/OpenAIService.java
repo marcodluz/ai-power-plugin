@@ -1,4 +1,4 @@
-package com.marcoluz.aipowerplugin.ai;
+package com.marcodluz.aipowerplugin.ai;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;

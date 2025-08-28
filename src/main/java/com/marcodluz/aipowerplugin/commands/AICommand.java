@@ -1,6 +1,6 @@
-package com.marcoluz.aipowerplugin.commands;
+package com.marcodluz.aipowerplugin.commands;
 
-import com.marcoluz.aipowerplugin.AIPowerPlugin;
+import com.marcodluz.aipowerplugin.AIPowerPlugin;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.command.Command;

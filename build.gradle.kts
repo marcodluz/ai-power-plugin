@@ -3,7 +3,7 @@ plugins {
     id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
-group = "com.marcoluz"
+group = "com.marcodluz"
 version = "1.0.0"
 description = "AI Power Plugin for Minecraft"
 
@@ -56,7 +56,7 @@ tasks.processResources {
 }
 
 tasks.shadowJar {
-    relocate("org.bstats", "com.marcoluz.aipowerplugin.bstats")
+    relocate("org.bstats", "com.marcodluz.aipowerplugin.bstats")
     archiveClassifier.set("")
 }
 

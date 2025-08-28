@@ -1,8 +1,8 @@
-package com.marcoluz.aipowerplugin;
+package com.marcodluz.aipowerplugin;
 
-import com.marcoluz.aipowerplugin.ai.AIService;
-import com.marcoluz.aipowerplugin.ai.AIServiceFactory;
-import com.marcoluz.aipowerplugin.commands.AICommand;
+import com.marcodluz.aipowerplugin.ai.AIService;
+import com.marcodluz.aipowerplugin.ai.AIServiceFactory;
+import com.marcodluz.aipowerplugin.commands.AICommand;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bstats.bukkit.Metrics;

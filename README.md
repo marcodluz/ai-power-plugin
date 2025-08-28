@@ -1,184 +1,150 @@
-# AI Power Plugin
+# 🤖 AI Power Plugin
 
-A modern PaperMC Minecraft plugin template with Gradle build system.
+**Bring AI assistants to your Minecraft server!** Let your players chat with OpenAI GPT, Claude, or other AI models right from the game.
 
-## Features
+## 🎯 What does this do?
 
-- Modern Gradle build with Kotlin DSL
-- PaperMC API integration
-- Example command system with tab completion
-- Configuration file support
-- Permission system
-- bStats metrics integration
-- Ready for Java 17+
+Players can ask AI questions directly in Minecraft:
 
-## Building
+```
+/ai How do I make a redstone clock?
+/ai What's the best way to find diamonds?
+/ai Tell me a joke about creepers
+```
 
-### Prerequisites
+The AI responds in chat with helpful, family-friendly answers tailored for Minecraft players.
 
-- Java 17 or higher
-- Git
+## 🚀 Quick Start
 
-### Build Steps
+1. **Download the plugin:**
 
-1. Clone the repository:
+   - Get the latest release from [GitHub Releases](https://github.com/marcodluz/ai-power-plugin/releases)
+   - Download the latest version.
 
-   ```bash
-   git clone <your-repo-url>
-   cd ai-power-plugin
+2. **Install:**
+
+   - Drop the JAR file into your server's `plugins/` folder
+   - Restart your server
+
+3. **Configure an AI provider:**
+   Edit `plugins/AIPowerPlugin/config.yml` and add your API key:
+
+   **For OpenAI (easiest):**
+
+   ```yaml
+   plugin:
+     default-provider: "openai"
+
+   ai-providers:
+     openai:
+       api-key: "sk-your-openai-key-here"
+       model: "gpt-3.5-turbo"
    ```
 
-2. Build the plugin:
+   **For AWS Bedrock:**
 
-   ```bash
-   ./gradlew build
+   ```yaml
+   plugin:
+     default-provider: "bedrock"
+
+   ai-providers:
+     bedrock:
+       access-key-id: "your-aws-access-key"
+       secret-access-key: "your-aws-secret-key"
+       region: "us-east-1"
    ```
 
-3. The built plugin JAR will be in `build/libs/ai-power-plugin-1.0.0.jar`
+4. **Reload and test:**
+   ```
+   /ai reload
+   /ai Hello, can you help me with Minecraft?
+   ```
 
-## Installation
+## 💬 Commands
 
-1. Download the latest release or build from source
-2. Place the JAR file in your server's `plugins/` directory
-3. Start or restart your server
-4. The plugin will create a `config.yml` file in `plugins/AIPowerPlugin/`
+| Command              | What it does                        |
+| -------------------- | ----------------------------------- |
+| `/ai <your message>` | Chat with the AI assistant          |
+| `/ai help`           | Show available commands             |
+| `/ai info`           | Check if AI is working              |
+| `/ai config`         | View current settings (admins only) |
+| `/ai reload`         | Reload configuration (admins only)  |
 
-## Commands
+## ⚙️ Supported AI Providers
 
-- `/ai help` - Show available commands
-- `/ai info` - Display plugin information
-- `/ai <message>` - Chat with AI assistant
-- `/ai config` - Show current configuration (admin only)
-- `/ai reload` - Reload configuration (admin only)
+- **OpenAI** - GPT-3.5, GPT-4 (recommended for beginners)
+- **Azure OpenAI** - Enterprise OpenAI deployments
+- **Anthropic** - Claude models via direct API
+- **AWS Bedrock** - Claude models via AWS (enterprise)
 
-## Permissions
+Just set `default-provider` in config.yml to your preferred option.
 
-- `ai.use` - Basic plugin usage (default: true)
-- `ai.admin` - Administrative commands (default: op)
+## 🛡️ Safety Features
 
-## Configuration
+- **Response length limits** - Prevents chat spam
+- **Rate limiting** - Stops AI abuse
+- **Family-friendly prompts** - AI knows it's talking to Minecraft players
+- **Error handling** - Graceful failures, no server crashes
+- **Admin controls** - Full permission system
 
-The plugin creates a comprehensive `config.yml` file with support for multiple AI providers:
-
-### AI Provider Setup
-
-Configure one or more AI providers:
+## 🔧 Advanced Configuration
 
 ```yaml
-# Plugin settings
 plugin:
-  default-provider: "openai" # openai, azure, anthropic, bedrock
-  max-response-length: 500
-  enable-chat-history: true
+  default-provider: "openai"
+  max-response-length: 500 # Prevent long AI responses
+  debug: false # Enable for troubleshooting
 
-# AI Provider Configurations
 ai-providers:
-  # OpenAI
   openai:
-    api-key: "your-openai-api-key-here"
-    model: "gpt-3.5-turbo"
-    max-tokens: 150
-    temperature: 0.7
+    api-key: "your-key-here"
+    model: "gpt-3.5-turbo" # or gpt-4, gpt-4-turbo
+    max-tokens: 150 # Response length
+    temperature: 0.7 # Creativity (0.0-1.0)
 
-  # Azure OpenAI
-  azure:
-    api-key: "your-azure-openai-api-key-here"
-    endpoint: "https://your-resource.openai.azure.com"
-    deployment-name: "your-deployment-name"
-    api-version: "2024-02-15-preview"
-
-  # Anthropic (Claude)
-  anthropic:
-    api-key: "your-anthropic-api-key-here"
-    model: "claude-3-haiku-20240307"
-
-  # AWS Bedrock
-  bedrock:
-    region: "us-east-1"
-    access-key-id: "your-aws-access-key-id"
-    secret-access-key: "your-aws-secret-access-key"
-    model-id: "anthropic.claude-3-haiku-20240307-v1:0"
-
-# Rate limiting and other settings
 rate-limiting:
   enabled: true
-  requests-per-minute: 5
+  requests-per-minute: 5 # Per player
   cooldown-seconds: 10
+
+messages:
+  system-prompt: "You are a helpful assistant in a Minecraft server. Keep responses concise and family-friendly. Help with game questions but avoid exact coordinates or major spoilers."
 ```
 
-### Setup Steps for AI Providers
+## 🚨 Requirements
 
-**OpenAI:**
+- **Java 17+** and **PaperMC 1.20.4+**
+- **An AI provider account** (OpenAI account costs ~$5-20/month for typical usage)
 
-1. Get API key from https://platform.openai.com/api-keys
-2. Set `plugin.default-provider: "openai"`
-3. Set your API key in `ai-providers.openai.api-key`
+## ❓ Common Issues
 
-**Azure OpenAI:**
+**"AI provider not configured"** → Check your API key in config.yml  
+**Long response times** → AI providers sometimes have delays, this is normal  
+**Rate limit errors** → Adjust `requests-per-minute` in config
 
-1. Create Azure OpenAI resource in Azure Portal
-2. Deploy a model (like GPT-3.5 or GPT-4)
-3. Set `plugin.default-provider: "azure"`
-4. Configure endpoint, deployment name, and API key
+## 🛠️ For Server Owners
 
-**Anthropic:**
+This plugin is designed to be **low-maintenance**:
 
-1. Get API key from https://console.anthropic.com/
-2. Set `plugin.default-provider: "anthropic"`
-3. Configure your API key and preferred Claude model
+- Async processing won't lag your server
+- Built-in rate limiting prevents abuse
+- Comprehensive error handling
+- Easy configuration management
 
-**AWS Bedrock:**
+Perfect for creative servers, help channels, or just adding some fun AI interaction!
 
-1. Enable Bedrock in AWS Console
-2. Request model access for Anthropic Claude
-3. Set `plugin.default-provider: "bedrock"`
-4. Configure AWS credentials and region
+## 🔨 Building from Source
 
-## Development
+Want to modify the plugin or contribute?
 
-### Project Structure
-
-```
-src/
-├── main/
-│   ├── java/com/marcoluz/aipowerplugin/
-│   │   ├── AIPowerPlugin.java          # Main plugin class
-│   │   └── commands/
-│   │       └── AICommand.java          # AI command handler
-│   └── resources/
-│       ├── plugin.yml                  # Plugin metadata
-│       └── config.yml                  # Default configuration
-├── build.gradle.kts                    # Build configuration
-└── README.md                           # This file
+```bash
+git clone https://github.com/marcodluz/ai-power-plugin.git
+cd ai-power-plugin
+./gradlew build
 ```
 
-### Adding New Features
+The JAR will be in `build/libs/ai-power-plugin-1.0.0.jar`
 
-1. Create new classes in appropriate packages
-2. Register commands in `AIPowerPlugin.java`
-3. Add command definitions to `plugin.yml`
-4. Update permissions as needed
+---
 
-### Testing
-
-Run the plugin on a test server:
-
-1. Build the plugin: `./gradlew build`
-2. Copy to test server: `cp build/libs/*.jar /path/to/test-server/plugins/`
-3. Start the server and test functionality
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Support
-
-For support, please open an issue on the GitHub repository or contact the maintainer.
+**Made with ❤️ for the Minecraft community**

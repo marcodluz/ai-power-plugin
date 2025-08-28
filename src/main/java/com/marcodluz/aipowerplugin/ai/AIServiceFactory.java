@@ -1,4 +1,4 @@
-package com.marcoluz.aipowerplugin.ai;
+package com.marcodluz.aipowerplugin.ai;
 
 import org.bukkit.configuration.ConfigurationSection;
 

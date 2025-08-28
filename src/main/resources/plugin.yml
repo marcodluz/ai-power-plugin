@@ -1,10 +1,10 @@
 name: AIPowerPlugin
 version: "${version}"
-main: com.marcoluz.aipowerplugin.AIPowerPlugin
+main: com.marcodluz.aipowerplugin.AIPowerPlugin
 api-version: 1.20
-author: marcoluz
+author: marcodluz
 description: AI Power Plugin for Minecraft
-website: https://github.com/marcoluz/ai-power-plugin
+website: https://github.com/marcodluz/ai-power-plugin
 
 commands:
   ai:
