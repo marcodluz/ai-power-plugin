@@ -1,0 +1,77 @@
+# AI Power Plugin Configuration
+# This is the main configuration file for your plugin
+
+# Plugin settings
+plugin:
+  # Enable debug mode for additional logging
+  debug: false
+
+  # Plugin prefix for messages
+  prefix: "&b[AI]&r "
+
+  # Default AI provider to use (openai, azure, anthropic, bedrock)
+  default-provider: "openai"
+
+  # Maximum response length in characters
+  max-response-length: 500
+
+  # Enable/disable chat history tracking
+  enable-chat-history: true
+
+  # Maximum chat history per player
+  max-chat-history: 10
+
+# AI Provider Configurations
+ai-providers:
+  # OpenAI Configuration
+  openai:
+    api-key: "your-openai-api-key-here"
+    model: "gpt-3.5-turbo"
+    base-url: "https://api.openai.com/v1"
+    max-tokens: 150
+    temperature: 0.7
+
+  # Azure OpenAI Configuration
+  azure:
+    api-key: "your-azure-openai-api-key-here"
+    endpoint: "https://your-resource.openai.azure.com"
+    deployment-name: "your-deployment-name"
+    api-version: "2024-02-15-preview"
+    max-tokens: 150
+    temperature: 0.7
+
+  # Anthropic Configuration
+  anthropic:
+    api-key: "your-anthropic-api-key-here"
+    model: "claude-3-haiku-20240307"
+    base-url: "https://api.anthropic.com"
+    max-tokens: 150
+    temperature: 0.7
+
+  # AWS Bedrock Configuration
+  bedrock:
+    region: "us-east-1"
+    access-key-id: "your-aws-access-key-id"
+    secret-access-key: "your-aws-secret-access-key"
+    model-id: "anthropic.claude-3-haiku-20240307-v1:0"
+    max-tokens: 150
+    temperature: 0.7
+
+# Message settings
+messages:
+  # System prompt for AI interactions
+  system-prompt: "You are a helpful assistant in a Minecraft server. Keep responses concise and family-friendly. You can help with game questions, general topics, but avoid giving exact coordinates or spoiling gameplay."
+
+  # Error messages
+  ai-unavailable: "&cAI service is currently unavailable. Please try again later."
+  invalid-provider: "&cInvalid AI provider configured. Please check your configuration."
+  no-api-key: "&cAI provider is not properly configured. Please contact an administrator."
+  rate-limited: "&cYou're sending messages too quickly! Please wait a moment."
+
+# Rate limiting (per player)
+rate-limiting:
+  enabled: true
+  # Requests per minute
+  requests-per-minute: 5
+  # Cooldown between requests in seconds
+  cooldown-seconds: 10
