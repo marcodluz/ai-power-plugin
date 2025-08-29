@@ -8,7 +8,7 @@
 
 **Bring AI assistants to your Minecraft server!** Let your players chat with OpenAI GPT, Claude, or other AI models right from the game.
 
-- Spigot resource page, visit <a href="https://www.spigotmc.org/resources/ai-power.128423/" target="_blank">here</a>.
+- Spigot resource page, visit [here](https://www.spigotmc.org/resources/ai-power.128423/).
 
 ## 🎯 What does this do?
 
