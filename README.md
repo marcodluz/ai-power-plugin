@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://www.spigotmc.org/resources/ai-power.128423/">
+  <a href="https://www.spigotmc.org/resources/ai-power.128423/" target="_blank">
     <img src="image.png" alt="AI Power Plugin Logo" width="150"/>
   </a>
 </div>
@@ -8,7 +8,7 @@
 
 **Bring AI assistants to your Minecraft server!** Let your players chat with OpenAI GPT, Claude, or other AI models right from the game.
 
-- Spigot resource page, visit [here](https://www.spigotmc.org/resources/ai-power.128423/).
+- Spigot resource page, visit <a href="https://www.spigotmc.org/resources/ai-power.128423/" target="_blank">here</a>.
 
 ## 🎯 What does this do?
 
