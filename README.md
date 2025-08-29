@@ -1,5 +1,7 @@
 <div align="center">
-  <a href="https://www.spigotmc.org/resources/ai-power.128423/"><img src="image.png" alt="AI Power Plugin Logo" width="100" style="border-radius: 10px; border: 2px solid grey;" /></a>
+  <a href="https://www.spigotmc.org/resources/ai-power.128423/">
+    <img src="image.png" alt="AI Power Plugin Logo" width="150"/>
+  </a>
 </div>
 
 # 🤖 AI Power Plugin
